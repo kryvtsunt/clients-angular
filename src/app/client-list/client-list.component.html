@@ -3,8 +3,8 @@
     <input type="text" [(ngModel)]="title" (keyup)="search()" class="form-control border border-right-0"
            placeholder="Search">
     <span class="input-group-append">
-                <button class="btn btn-light border border-left-0"
-                        type="button">
+                <button class="btn btn-outline-dark bg-white border border-left-0"
+                        type="button" title="Search" disabled>
                     <i class="fa fa-search"></i>
                 </button>
     </span>
@@ -12,10 +12,10 @@
   <ul *ngFor="let client of clients" class="list-group">
     <li [ngClass]="{'btn-dark active': client.general.id == clientId}" class=" btn list-group-item list-group-item-action" routerLink="/client/{{client.general.id}}">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-12">
           <img class="rounded" src="{{client.general.avatar}}" width="100px">
         </div>
-        <div class="col-md-9">
+        <div class="col-lg-9 col-md-12">
           <h3>{{client.general.firstName}} {{client.general.lastName}}</h3>
           <h6 class="text-muted"> {{client.job.title}}</h6>
         </div>

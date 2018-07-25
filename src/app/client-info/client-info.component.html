@@ -1,22 +1,52 @@
 <div *ngIf="clientId !== undefined">
   <div class="bg-dark text-white shadow-lg p-3 rounded">
-    <h3 style="padding-left: 3%"> Personal Information </h3>
+    <h3 style="padding-left: 3%"><i class="fa fa-user"> </i> Personal Information</h3>
   </div>
   <div class="bg-white shadow-lg p-3 mb-5 rounded">
-    <br/>
-    <div class="row">
-      <div class="col-lg-3 text-center">
-        <img src="{{client.general.avatar}}" width="200px" class="rounded"
-             style="border: 3px solid">
+    <div class="row" style="padding: 0px 20px ">
+      <div class="col-lg-4 text-center" style="padding-top: 50px">
+        <img src="{{client.general.avatar}}" width="200px" class="rounded-circle"
+             style="border: 5px solid #345269">
       </div>
-      <div class="col-lg-9 " style="border-left: 3px solid">
+      <div class="col-lg-8">
         <br/>
         <ul class="list-group-flush">
-          <li class="list-group-item"><h6>First Name: {{client.general.firstName}}</h6></li>
-          <li class="list-group-item"><h6>Last Name: {{client.general.lastName}}</h6></li>
+          <div class="list-group-item">
+          <div class="row">
+            <div class="col-6"> <h6 class="text-muted">First Name: </h6> </div>
+            <div class="col-6"> <h6>{{client.general.firstName}}</h6> </div>
+          </div>
+          </div>
+          <div class="list-group-item">
+            <div class="row">
+              <div class="col-6"> <h6 class="text-muted">Last Name: </h6> </div>
+              <div class="col-6"> <h6>{{client.general.lastName}}</h6> </div>
+            </div>
+          </div>
+          <div class="list-group-item">
+            <div class="row">
+              <div class="col-6"> <h6 class="text-muted">Email: </h6> </div>
+              <div class="col-6"> <h6>{{client.contact.email.split('@')[0]}}</h6><h6>@{{client.contact.email.split('@')[1]}}</h6> </div>
+            </div>
+          </div>
+          <div class="list-group-item">
+            <div class="row">
+              <div class="col-6"> <h6 class="text-muted">Phone: </h6> </div>
+              <div class="col-6"> <h6>{{client.contact.phone}}</h6> </div>
+            </div>
+          </div>
+          <div class="list-group-item">
+            <div class="row">
+              <div class="col-6"> <h6 class="text-muted">Address: </h6> </div>
+              <div class="col-6"> <h6>{{client.address.street}}, {{client.address.city}}, {{client.address.country}}, {{client.address.zipCode}}</h6> </div>
+            </div>
+          </div>
         </ul>
       </div>
     </div>
+    <br/>
+    <span class="text-center"><h6> <em><strong> Works as {{client.job.title}}<br/>at {{client.job.company}}</strong></em></h6></span>
+
     <br/>
     <br/>
   </div>
