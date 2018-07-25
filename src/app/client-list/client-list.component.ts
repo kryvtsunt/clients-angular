@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ClientService} from '../services/client.service.client';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-client-list',
@@ -9,6 +9,7 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class ClientListComponent implements OnInit {
   clients;
+  allClients;
   clientId: string;
   title: string;
 
@@ -19,13 +20,23 @@ export class ClientListComponent implements OnInit {
   getAllClients() {
     this.service.getAllClients()
       .then(result => {
+        this.allClients = result;
         this.clients = result;
       });
   }
-  search(){
+
+  search() {
+    console.log(this.title);
+    if (this.title !== '') {
+      this.service.searchClients(this.title)
+        .then(res => {this.clients = res});
+    } else {
+      this.clients = this.allClients;
+    }
   }
 
   ngOnInit() {
+    this.title = '';
     this.getAllClients();
   }
 
