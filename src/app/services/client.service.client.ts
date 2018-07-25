@@ -10,4 +10,10 @@ export class ClientService {
       .then(response => response.json());
   }
 
+  getClientById(id: string) {
+    return fetch(CLIENT_URL)
+      .then(response => response.json())
+      .then( response2 => response2.filter(client => client.general.id === id ) );
+  }
+
 }
