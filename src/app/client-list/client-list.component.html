@@ -1,7 +1,25 @@
 <div>
-  <ul *ngFor="let client of clients">
-    <li>
-      <h1>{{client.general.firstName}}</h1>
+  <div class="input-group">
+    <input type="text" [(ngModel)]="title" (keyup)="search()" class="form-control border border-right-0"
+           placeholder="Search">
+    <span class="input-group-append">
+                <button class="btn btn-light border border-left-0"
+                        type="button">
+                    <i class="fa fa-search"></i>
+                </button>
+    </span>
+  </div>
+  <ul *ngFor="let client of clients" class="list-group">
+    <li class="list-group-item list-group-item-action">
+      <div class="row">
+        <div class="col-3">
+          <img class="rounded" src="{{client.general.avatar}}" width="100px">
+        </div>
+        <div class="col-9">
+          <h3>{{client.general.firstName}}</h3>
+          <h6 class="text-muted"> {{client.job.title}}</h6>
+        </div>
+      </div>
     </li>
   </ul>
 </div>

@@ -8,6 +8,7 @@ import {ClientService} from '../services/client.service.client';
 })
 export class ClientListComponent implements OnInit {
   clients;
+  title: string;
   constructor(private service: ClientService) { }
 
   getAllClients() {
@@ -15,6 +16,8 @@ export class ClientListComponent implements OnInit {
       .then(result => {
         this.clients = result;
       });
+  }
+  search(){
   }
 
   ngOnInit() {
