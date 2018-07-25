@@ -8,6 +8,7 @@ import {ClientViewerComponent} from './client-viewer/client-viewer.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {routing} from './app.routing';
+import {ClientService} from './services/client.service.client';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import {routing} from './app.routing';
     HttpClientModule,
     routing
   ],
-  providers: [],
+  providers: [ClientService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
