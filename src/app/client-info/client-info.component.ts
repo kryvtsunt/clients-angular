@@ -25,7 +25,7 @@ export class ClientInfoComponent implements OnInit {
   }
   getClientById(id: string) {
     this.service.getClientById(id)
-      .then(res => {this.client = res[0]; console.log(this.client); });
+      .then(res => {this.client = res[0]; });
   }
 
   ngOnInit() {
