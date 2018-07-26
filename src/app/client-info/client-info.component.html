@@ -11,19 +11,9 @@
       </div>
       <div class="col-lg-7">
         <br/>
+        <h4><strong>{{client.general.firstName}} {{client.general.lastName}}</strong></h4>
+        <h6 class="text-black-50"><em>{{client.job.title}} <br/> at {{client.job.company}}</em></h6>
         <ul class="list-group list-group-flush">
-          <div class="list-group-item">
-          <div class="row">
-            <div class="col-6"> <h6 class="text-muted">First Name: </h6> </div>
-            <div class="col-6"> <h6><strong>{{client.general.firstName}}</strong></h6> </div>
-          </div>
-          </div>
-          <div class="list-group-item">
-            <div class="row">
-              <div class="col-6"> <h6 class="text-muted">Last Name: </h6> </div>
-              <div class="col-6"> <h6><strong>{{client.general.lastName}}</strong></h6> </div>
-            </div>
-          </div>
           <div class="list-group-item">
             <div class="row">
               <div class="col-6"> <h6 class="text-muted">Email: </h6> </div>
@@ -45,10 +35,6 @@
         </ul>
       </div>
     </div>
-    <br/>
-    <span class="text-center"><h6> <em><strong> Works as {{client.job.title}}<br/>at {{client.job.company}}</strong></em></h6></span>
-
-    <br/>
     <br/>
   </div>
 </div>
