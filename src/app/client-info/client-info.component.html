@@ -1,44 +1,45 @@
 <div *ngIf="clientId !== undefined">
-  <div class="bg-dark text-white shadow-lg p-3 rounded">
-    <h3 style="padding-left: 3%"><i class="fa fa-user"> </i> Personal Information</h3>
+  <div class=" text-white text-center text-white shadow-lg p-3 rounded" style="background-color: #212529">
+    <h3 style="padding-left: 3%;"><i class="fa fa-user"> </i> Personal Information</h3>
   </div>
   <div class="bg-white shadow-lg p-3 mb-5 rounded">
-    <div class="row" style="padding: 0px 20px ">
-      <div class="col-lg-4 text-center" style="padding-top: 50px">
-        <img src="{{client.general.avatar}}" width="200px" class="rounded-circle"
-             style="border: 5px solid #345269">
-      </div>
-      <div class="col-lg-8">
+    <div class="row" style="padding: 0px 20px">
+      <div class="col-lg-5 text-center rounded" style="padding: 30px 5px 50px 5px; background-color: #191e23">
+        <img src="{{client.general.avatar}}" width="100%" class="rounded-circle"
+             style="border: 5px solid #2b3137">
         <br/>
-        <ul class="list-group-flush">
+      </div>
+      <div class="col-lg-7">
+        <br/>
+        <ul class="list-group list-group-flush">
           <div class="list-group-item">
           <div class="row">
             <div class="col-6"> <h6 class="text-muted">First Name: </h6> </div>
-            <div class="col-6"> <h6>{{client.general.firstName}}</h6> </div>
+            <div class="col-6"> <h6><strong>{{client.general.firstName}}</strong></h6> </div>
           </div>
           </div>
           <div class="list-group-item">
             <div class="row">
               <div class="col-6"> <h6 class="text-muted">Last Name: </h6> </div>
-              <div class="col-6"> <h6>{{client.general.lastName}}</h6> </div>
+              <div class="col-6"> <h6><strong>{{client.general.lastName}}</strong></h6> </div>
             </div>
           </div>
           <div class="list-group-item">
             <div class="row">
               <div class="col-6"> <h6 class="text-muted">Email: </h6> </div>
-              <div class="col-6"> <h6>{{client.contact.email.split('@')[0]}}</h6><h6>@{{client.contact.email.split('@')[1]}}</h6> </div>
+              <div class="col-6"> <h6><strong>{{client.contact.email.split('@')[0]}}</strong></h6><h6><strong>@{{client.contact.email.split('@')[1]}}</strong></h6> </div>
             </div>
           </div>
           <div class="list-group-item">
             <div class="row">
               <div class="col-6"> <h6 class="text-muted">Phone: </h6> </div>
-              <div class="col-6"> <h6>{{client.contact.phone}}</h6> </div>
+              <div class="col-6"> <h6><strong>{{client.contact.phone}}</strong></h6> </div>
             </div>
           </div>
           <div class="list-group-item">
             <div class="row">
               <div class="col-6"> <h6 class="text-muted">Address: </h6> </div>
-              <div class="col-6"> <h6>{{client.address.street}}, {{client.address.city}}, {{client.address.country}}, {{client.address.zipCode}}</h6> </div>
+              <div class="col-6"> <h6><strong>{{client.address.street}}, {{client.address.city}}, {{client.address.country}}, {{client.address.zipCode}}</strong></h6> </div>
             </div>
           </div>
         </ul>
@@ -50,4 +51,7 @@
     <br/>
     <br/>
   </div>
+</div>
+<div *ngIf="clientId === undefined">
+  <h3 class="text-muted text-uppercase"> choose client to see the info-panel </h3>
 </div>
