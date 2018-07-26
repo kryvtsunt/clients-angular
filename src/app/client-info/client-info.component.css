@@ -1,0 +1,24 @@
+#overflow {
+  overflow-wrap: break-word;
+}
+
+#avatar {
+  padding: 30px 5px 50px 5px;
+  background-color: #191e23;
+}
+
+#img {
+  border: 5px solid #2b3137;
+}
+
+#info {
+  padding: 0px 20px;
+}
+
+#title {
+  padding-left: 3%;
+}
+
+#header {
+  background-color: #212529;
+}

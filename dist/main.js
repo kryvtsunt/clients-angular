@@ -177,7 +177,7 @@ var routing = _angular_router__WEBPACK_IMPORTED_MODULE_0__["RouterModule"].forRo
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "#overflow {\r\n  overflow-wrap: break-word;\r\n}\r\n\r\n#avatar {\r\n  padding: 30px 5px 50px 5px;\r\n  background-color: #191e23;\r\n}\r\n\r\n#img {\r\n  border: 5px solid #2b3137;\r\n}\r\n\r\n#info {\r\n  padding: 0px 20px;\r\n}\r\n\r\n#title {\r\n  padding-left: 3%;\r\n}\r\n\r\n#header {\r\n  background-color: #212529;\r\n}\r\n"
 
 /***/ }),
 
@@ -188,7 +188,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"clientId !== undefined && client !== undefined\">\n  <div class=\" text-white text-center text-white shadow-lg p-3 rounded\" style=\"background-color: #212529\">\n    <h3 style=\"padding-left: 3%;\"><i class=\"fa fa-user\"> </i> Personal Information</h3>\n  </div>\n  <div class=\"bg-white shadow-lg p-3 mb-5 rounded\">\n    <div class=\"row\" style=\"padding: 0px 20px\">\n      <div class=\"col-lg-5 text-center rounded\" style=\"padding: 30px 5px 50px 5px; background-color: #191e23\">\n        <img src=\"{{client.general.avatar}}\" width=\"100%\" class=\"rounded-circle\"\n             style=\"border: 5px solid #2b3137\">\n        <br/>\n      </div>\n      <div class=\"col-lg-7\">\n        <br/>\n        <h4><strong>{{client.general.firstName}} {{client.general.lastName}}</strong></h4>\n        <h6 class=\"text-black-50\"><em>{{client.job.title}} <br/> at {{client.job.company}}</em></h6>\n        <ul class=\"list-group list-group-flush\">\n          <div class=\"list-group-item\">\n            <div class=\"row\">\n              <div class=\"col-6\"> <h6 class=\"text-muted\">Email: </h6> </div>\n              <div class=\"col-6\"> <h6><strong>{{client.contact.email.split('@')[0]}}</strong></h6><h6><strong>@{{client.contact.email.split('@')[1]}}</strong></h6> </div>\n            </div>\n          </div>\n          <div class=\"list-group-item\">\n            <div class=\"row\">\n              <div class=\"col-6\"> <h6 class=\"text-muted\">Phone: </h6> </div>\n              <div class=\"col-6\"> <h6><strong>{{client.contact.phone}}</strong></h6> </div>\n            </div>\n          </div>\n          <div class=\"list-group-item\">\n            <div class=\"row\">\n              <div class=\"col-6\"> <h6 class=\"text-muted\">Address: </h6> </div>\n              <div class=\"col-6\"> <h6><strong>{{client.address.street}}, {{client.address.city}}, {{client.address.country}}, {{client.address.zipCode}}</strong></h6> </div>\n            </div>\n          </div>\n        </ul>\n      </div>\n    </div>\n    <br/>\n  </div>\n</div>\n<div *ngIf=\"clientId === undefined\">\n  <h3 class=\"text-muted text-uppercase\"> choose client to see the info-panel </h3>\n</div>\n"
+module.exports = "<div *ngIf=\"clientId !== undefined && client !== undefined\">\n  <div class=\" text-white text-center text-white shadow-lg p-3 rounded\" id=\"header\">\n    <h3 id=\"title\"><i class=\"fa fa-user\"> </i> Personal Information</h3>\n  </div>\n  <div class=\"bg-white shadow-lg p-3 mb-5 rounded\">\n    <div class=\"row\" id=\"info\">\n      <div class=\"col-lg-5 text-center rounded\" id=\"avatar\">\n        <img src=\"{{client.general.avatar}}\" width=\"100%\" class=\"rounded-circle\" id=\"img\">\n        <br/>\n      </div>\n      <div class=\"col-lg-7\">\n        <br/>\n        <div class=\"text-center\">\n        <h4><strong>{{client.general.firstName}} {{client.general.lastName}}</strong></h4>\n        <h6 class=\"text-black-50\"><em>{{client.job.title}} <br/> at {{client.job.company}}</em></h6>\n        </div>\n        <br/>\n        <ul class=\"list-group list-group-flush\">\n          <div class=\"list-group-item\">\n            <div class=\"row\">\n              <div class=\"col-4\"><h6 class=\"text-muted\">Email: </h6></div>\n              <div class=\"col-8\"><h6 id=\"overflow\"><strong>{{client.contact.email}}</strong></h6>\n              </div>\n            </div>\n          </div>\n          <div class=\"list-group-item\">\n            <div class=\"row\">\n              <div class=\"col-4\"><h6 class=\"text-muted\">Phone: </h6></div>\n              <div class=\"col-8\"><h6><strong>{{client.contact.phone}}</strong></h6></div>\n            </div>\n          </div>\n          <div class=\"list-group-item\">\n            <div class=\"row\">\n              <div class=\"col-4\"><h6 class=\"text-muted\">Address: </h6></div>\n              <div class=\"col-8\"><h6><strong>{{client.address.street}}, {{client.address.city}},\n                {{client.address.country}}, {{client.address.zipCode}}</strong></h6></div>\n            </div>\n          </div>\n        </ul>\n      </div>\n    </div>\n    <br/>\n  </div>\n</div>\n<div *ngIf=\"clientId === undefined\">\n  <h3 class=\"text-muted text-uppercase\"> choose client to see the info-panel </h3>\n</div>\n"
 
 /***/ }),
 
@@ -222,7 +222,9 @@ var ClientInfoComponent = /** @class */ (function () {
         var _this = this;
         this.service = service;
         this.route = route;
-        this.route.params.subscribe(function (params) { _this.setParams(params); });
+        this.route.params.subscribe(function (params) {
+            _this.setParams(params);
+        });
     }
     ClientInfoComponent.prototype.setParams = function (params) {
         this.clientId = params['clientId'];
@@ -233,7 +235,9 @@ var ClientInfoComponent = /** @class */ (function () {
     ClientInfoComponent.prototype.getClientById = function (id) {
         var _this = this;
         this.service.getClientById(id)
-            .then(function (res) { _this.client = res[0]; });
+            .then(function (res) {
+            _this.client = res[0];
+        });
     };
     ClientInfoComponent.prototype.ngOnInit = function () {
     };
@@ -270,7 +274,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <div class=\"input-group input-group-lg\">\n    <input type=\"text\" [(ngModel)]=\"title\" (keyup)=\"search()\" class=\"form-control border border-right-0\"\n           placeholder=\"Search\">\n    <span class=\"input-group-append\">\n                <button class=\"btn btn-outline-dark bg-white border border-left-0\"\n                        type=\"button\" title=\"Search\" disabled>\n                    <i class=\"fa fa-search\"></i>\n                </button>\n    </span>\n  </div>\n  <ul *ngFor=\"let client of clients\" class=\"list-group\">\n    <li [ngClass]=\"{'btn-dark active': client.general.id == clientId}\" class=\" btn list-group-item list-group-item-action\" routerLink=\"/client/{{client.general.id}}\">\n      <div class=\"row\">\n        <div class=\"col-lg-3 col-md-12\">\n          <img class=\"rounded\" src=\"{{client.general.avatar}}\" width=\"100px\">\n        </div>\n        <div class=\"col-lg-9 col-md-12\">\n          <h3>{{client.general.firstName}} {{client.general.lastName}}</h3>\n          <h6 class=\"text-muted\"> {{client.job.title}}</h6>\n        </div>\n      </div>\n    </li>\n  </ul>\n</div>\n"
+module.exports = "<div>\n  <div class=\"input-group input-group-lg\">\n    <input type=\"text\" [(ngModel)]=\"title\" (keyup)=\"search()\" class=\"form-control border border-right-0\"\n           placeholder=\"Search\">\n    <span class=\"input-group-append\">\n                <button class=\"btn btn-outline-dark bg-white border border-left-0\"\n                        type=\"button\" title=\"Search\" disabled>\n                    <i class=\"fa fa-search\"></i>\n                </button>\n    </span>\n  </div>\n  <ul *ngFor=\"let client of clients\" class=\"list-group\">\n    <li [ngClass]=\"{'btn-dark active': client.general.id == clientId}\"\n        class=\" btn list-group-item list-group-item-action\" routerLink=\"/client/{{client.general.id}}\">\n      <div class=\"row\">\n        <div class=\"col-lg-3 col-md-12\">\n          <img class=\"rounded\" src=\"{{client.general.avatar}}\" width=\"100px\">\n        </div>\n        <div class=\"col-lg-9 col-md-12\">\n          <h3>{{client.general.firstName}} {{client.general.lastName}}</h3>\n          <h6 class=\"text-muted\"> {{client.job.title}}</h6>\n        </div>\n      </div>\n    </li>\n  </ul>\n</div>\n"
 
 /***/ }),
 
@@ -304,7 +308,9 @@ var ClientListComponent = /** @class */ (function () {
         var _this = this;
         this.service = service;
         this.route = route;
-        this.route.params.subscribe(function (params) { _this.clientId = params['clientId']; });
+        this.route.params.subscribe(function (params) {
+            _this.clientId = params['clientId'];
+        });
     }
     ClientListComponent.prototype.getAllClients = function () {
         var _this = this;
@@ -319,7 +325,9 @@ var ClientListComponent = /** @class */ (function () {
         console.log(this.title);
         if (this.title !== '') {
             this.service.searchClients(this.title)
-                .then(function (res) { _this.clients = res; });
+                .then(function (res) {
+                _this.clients = res;
+            });
         }
         else {
             this.clients = this.allClients;
@@ -362,7 +370,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<br/>\n<div class=\"container\">\n  <h2><strong> List of All Clients </strong></h2>\n  <div class=\"row\">\n    <div class=\"col-md-6\">\n      <app-client-list></app-client-list>\n      <br/>\n    </div>\n    <div class=\"col-md-6\">\n      <app-client-info></app-client-info>\n    </div>\n  </div>\n\n</div>\n<br/>\n<br/>\n"
+module.exports = "<br/>\n<div class=\"container\">\n  <h2><strong> &nbsp; <i class=\"fa fa-list\"></i> &nbsp; List of All Clients </strong></h2>\n  <div class=\"row\">\n    <div class=\"col-md-6\">\n      <app-client-list></app-client-list>\n      <br/>\n    </div>\n    <div class=\"col-md-6\">\n      <app-client-info></app-client-info>\n    </div>\n  </div>\n\n</div>\n<br/>\n<br/>\n"
 
 /***/ }),
 
@@ -417,8 +425,8 @@ var ClientViewerComponent = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ClientService", function() { return ClientService; });
-var HOST = 'https://tk-clients-angular.herokuapp.com/';
-// const HOST = 'http://localhost:4200/';
+// const HOST = 'https://tk-clients-angular.herokuapp.com/';
+var HOST = 'http://localhost:4200/';
 var CLIENT_URL = HOST + 'assets/clients.json';
 var ClientService = /** @class */ (function () {
     function ClientService() {

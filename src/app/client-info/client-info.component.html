@@ -1,23 +1,25 @@
 <div *ngIf="clientId !== undefined && client !== undefined">
-  <div class=" text-white text-center text-white shadow-lg p-3 rounded" style="background-color: #212529">
-    <h3 style="padding-left: 3%;"><i class="fa fa-user"> </i> Personal Information</h3>
+  <div class=" text-white text-center text-white shadow-lg p-3 rounded" id="header">
+    <h3 id="title"><i class="fa fa-user"> </i> Personal Information</h3>
   </div>
   <div class="bg-white shadow-lg p-3 mb-5 rounded">
-    <div class="row" style="padding: 0px 20px">
-      <div class="col-lg-5 text-center rounded" style="padding: 30px 5px 50px 5px; background-color: #191e23">
-        <img src="{{client.general.avatar}}" width="100%" class="rounded-circle"
-             style="border: 5px solid #2b3137">
+    <div class="row" id="info">
+      <div class="col-lg-5 text-center rounded" id="avatar">
+        <img src="{{client.general.avatar}}" width="100%" class="rounded-circle" id="img">
         <br/>
       </div>
       <div class="col-lg-7">
         <br/>
+        <div class="text-center">
         <h4><strong>{{client.general.firstName}} {{client.general.lastName}}</strong></h4>
         <h6 class="text-black-50"><em>{{client.job.title}} <br/> at {{client.job.company}}</em></h6>
+        </div>
+        <br/>
         <ul class="list-group list-group-flush">
           <div class="list-group-item">
             <div class="row">
               <div class="col-4"><h6 class="text-muted">Email: </h6></div>
-              <div class="col-8"><h6 style="overflow-wrap: break-word"><strong>{{client.contact.email}}</strong></h6>
+              <div class="col-8"><h6 id="overflow"><strong>{{client.contact.email}}</strong></h6>
               </div>
             </div>
           </div>
