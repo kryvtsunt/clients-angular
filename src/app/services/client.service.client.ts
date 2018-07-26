@@ -1,5 +1,5 @@
-// const HOST = 'https://tk-clients-angular.herokuapp.com/';
-const HOST = 'http://localhost:4200/';
+const HOST = 'https://tk-clients-angular.herokuapp.com/';
+// const HOST = 'http://localhost:4200/';
 const CLIENT_URL = HOST + 'assets/clients.json';
 
 export class ClientService {

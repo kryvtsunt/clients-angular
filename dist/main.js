@@ -425,8 +425,8 @@ var ClientViewerComponent = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ClientService", function() { return ClientService; });
-// const HOST = 'https://tk-clients-angular.herokuapp.com/';
-var HOST = 'http://localhost:4200/';
+var HOST = 'https://tk-clients-angular.herokuapp.com/';
+// const HOST = 'http://localhost:4200/';
 var CLIENT_URL = HOST + 'assets/clients.json';
 var ClientService = /** @class */ (function () {
     function ClientService() {
