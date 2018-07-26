@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ClientService} from '../services/client.service.client';
+import {Client} from "../models/client.model.client";
 
 @Component({
   selector: 'app-client-info',
@@ -9,12 +10,14 @@ import {ClientService} from '../services/client.service.client';
 })
 export class ClientInfoComponent implements OnInit {
 
-  client;
+  client: Client;
   clientId: string;
 
   constructor(private service: ClientService, private route: ActivatedRoute) {
     this.route.params.subscribe(
-      params => { this.setParams(params); });
+      params => {
+        this.setParams(params);
+      });
   }
 
   setParams(params) {
@@ -23,9 +26,12 @@ export class ClientInfoComponent implements OnInit {
       this.getClientById(this.clientId);
     }
   }
+
   getClientById(id: string) {
     this.service.getClientById(id)
-      .then(res => {this.client = res[0]; });
+      .then(res => {
+        this.client = res[0];
+      });
   }
 
   ngOnInit() {

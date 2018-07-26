@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ClientService} from '../services/client.service.client';
 import {ActivatedRoute} from '@angular/router';
+import {Client} from '../models/client.model.client';
 
 @Component({
   selector: 'app-client-list',
@@ -8,15 +9,18 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./client-list.component.css']
 })
 export class ClientListComponent implements OnInit {
-  clients;
-  allClients;
+  clients: Client[];
+  allClients: Client[];
   clientId: string;
   title: string;
 
   constructor(private service: ClientService, private route: ActivatedRoute) {
-  this.route.params.subscribe(
-    params => {this.clientId = params['clientId']; });
-}
+    this.route.params.subscribe(
+      params => {
+        this.clientId = params['clientId'];
+      });
+  }
+
   getAllClients() {
     this.service.getAllClients()
       .then(result => {
@@ -29,7 +33,9 @@ export class ClientListComponent implements OnInit {
     console.log(this.title);
     if (this.title !== '') {
       this.service.searchClients(this.title)
-        .then(res => {this.clients = res});
+        .then(res => {
+          this.clients = res
+        });
     } else {
       this.clients = this.allClients;
     }

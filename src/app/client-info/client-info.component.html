@@ -16,20 +16,22 @@
         <ul class="list-group list-group-flush">
           <div class="list-group-item">
             <div class="row">
-              <div class="col-6"> <h6 class="text-muted">Email: </h6> </div>
-              <div class="col-6"> <h6><strong>{{client.contact.email.split('@')[0]}}</strong></h6><h6><strong>@{{client.contact.email.split('@')[1]}}</strong></h6> </div>
+              <div class="col-4"><h6 class="text-muted">Email: </h6></div>
+              <div class="col-8"><h6 style="overflow-wrap: break-word"><strong>{{client.contact.email}}</strong></h6>
+              </div>
             </div>
           </div>
           <div class="list-group-item">
             <div class="row">
-              <div class="col-6"> <h6 class="text-muted">Phone: </h6> </div>
-              <div class="col-6"> <h6><strong>{{client.contact.phone}}</strong></h6> </div>
+              <div class="col-4"><h6 class="text-muted">Phone: </h6></div>
+              <div class="col-8"><h6><strong>{{client.contact.phone}}</strong></h6></div>
             </div>
           </div>
           <div class="list-group-item">
             <div class="row">
-              <div class="col-6"> <h6 class="text-muted">Address: </h6> </div>
-              <div class="col-6"> <h6><strong>{{client.address.street}}, {{client.address.city}}, {{client.address.country}}, {{client.address.zipCode}}</strong></h6> </div>
+              <div class="col-4"><h6 class="text-muted">Address: </h6></div>
+              <div class="col-8"><h6><strong>{{client.address.street}}, {{client.address.city}},
+                {{client.address.country}}, {{client.address.zipCode}}</strong></h6></div>
             </div>
           </div>
         </ul>

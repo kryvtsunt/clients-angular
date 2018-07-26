@@ -10,7 +10,8 @@
     </span>
   </div>
   <ul *ngFor="let client of clients" class="list-group">
-    <li [ngClass]="{'btn-dark active': client.general.id == clientId}" class=" btn list-group-item list-group-item-action" routerLink="/client/{{client.general.id}}">
+    <li [ngClass]="{'btn-dark active': client.general.id == clientId}"
+        class=" btn list-group-item list-group-item-action" routerLink="/client/{{client.general.id}}">
       <div class="row">
         <div class="col-lg-3 col-md-12">
           <img class="rounded" src="{{client.general.avatar}}" width="100px">
